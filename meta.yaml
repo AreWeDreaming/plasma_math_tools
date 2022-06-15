@@ -8,11 +8,12 @@ source:
 
 requirements:
   build:
-    - python
-    - setuptools
+    - python >=3.7.10
+    - setuptools >=57.4.0
+    - build >=0.8.0
 
   run:
-    - python
+    - pythonv>=3.7.10
     - matplotlib >=3.3.4
     - numpy >=1.21.4 
     - scipy >=1.7.3
