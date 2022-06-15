@@ -5,7 +5,7 @@ Library of math tools useful for plasma physics
 Installation should be done through conda
 
 ```bash
-conda install -c AreWeDreaming PlasmaMathTools
+conda install -c AreWeDreaming plasma_math_tools
 ```
 
 ## Dependencies
