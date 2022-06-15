@@ -1,4 +1,4 @@
-Library of math tools useful to plasma physics
+Library of math tools useful for plasma physics
 
 ## Installation
 
@@ -20,7 +20,7 @@ The following Python packages (has to be Python 3):
 * Basic fitting tools
 
 ## Contributing
-At the moment all contributions should be discussed. Pull requests will be welcome once version 1.0 is stable.
+At the moment all contributions should be discussed.
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
