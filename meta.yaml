@@ -1,14 +1,15 @@
 package: 
   name: plasma_math_tools
-  version: 1.0.4
+  version: 1.0.5
 
 source:
-  git_rev: 1.0.4
+  git_rev: 1.0.5
   git_url: https://github.com/AreWeDreaming/plasma_math_tools
 
 requirements:
   build:
     - python >=3.7
+    - pip >=21.0
     - setuptools >=57.4
     - build >=0.7
 
