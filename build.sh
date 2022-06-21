@@ -1,1 +1,1 @@
-$PYTHON -m build
+$PYTHON -m build -n -x
