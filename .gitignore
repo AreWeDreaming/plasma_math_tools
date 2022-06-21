@@ -1,4 +1,1 @@
-*.gz
-*.whl
-PKG-INFO
-SOURCES.txt
+/dist/

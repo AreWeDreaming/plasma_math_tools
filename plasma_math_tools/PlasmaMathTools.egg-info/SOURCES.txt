@@ -1,7 +1,0 @@
-README.md
-pyproject.toml
-setup.cfg
-plasma_math/PlasmaMathTools.egg-info/PKG-INFO
-plasma_math/PlasmaMathTools.egg-info/SOURCES.txt
-plasma_math/PlasmaMathTools.egg-info/dependency_links.txt
-plasma_math/PlasmaMathTools.egg-info/top_level.txt
