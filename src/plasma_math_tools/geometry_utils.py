@@ -134,8 +134,8 @@ def get_theta_pol_phi_tor_from_two_points(x1_vec, x2_vec):
     # It does not matter if they are rotated around the origin in the torus center
     # by phi. I.e. x=R also works as long as it is consistent.
     # Phi is defined as the angle between the k_1 = -r_1 and k_2 = r_2 - r_1
-    R1 = np.linalg.norm(x1_vec[:2])
-    R2 = np.linalg.norm(x2_vec[:2])
+    R1 = np.linalg.norm(x1_vec[:2], axis=0)
+    R2 = np.linalg.norm(x2_vec[:2], axis=0)
     theta_pol = get_theta_pol_from_two_points(np.array([R1, x1_vec[2]]), 
                                               np.array([R2, x2_vec[2]]))
     phi_tor = get_phi_tor_from_two_points(x1_vec[:2], x2_vec[:2])
@@ -151,7 +151,7 @@ def get_theta_pol_from_two_points(R1_vec, R2_vec):
 def get_phi_tor_from_two_points(x1_vec, x2_vec):
     # x1_vec and x2_vec should be 2D and lie in the x,y plane
     phi_tor = -np.rad2deg(np.arccos((-x1_vec[0] * (x2_vec[0] - x1_vec[0]) - x1_vec[1] * (x2_vec[1] - x1_vec[1])) / 
-                                                    (np.linalg.norm(x1_vec) * np.linalg.norm(x2_vec - x1_vec))))
+                                                    (np.linalg.norm(x1_vec, axis=0) * np.linalg.norm(x2_vec - x1_vec, axis=0))))
     return phi_tor
 
 class Contouring():
@@ -326,9 +326,9 @@ class Contouring():
                np.abs(np.imag(self.contour_indices[-1][0] - candidate)) == 0.0):
                     return False, True, None
         if(self.debug):
-            plt.plot(self.x[np.abs(np.int(np.real(point)))], self.y[np.abs(np.int(np.imag(point)))], "o")
+            plt.plot(self.x[np.abs(bool(np.real(point)))], self.y[np.abs(bool(np.imag(point)))], "o")
             for candidate in candidates:
-                plt.plot(self.x[np.abs(np.int(np.real(candidate)))], self.y[np.abs(np.int(np.imag(candidate)))], "+r")
+                plt.plot(self.x[np.abs(bool(np.real(candidate)))], self.y[np.abs(bool(np.imag(candidate)))], "+r")
             plt.show()
         return False, False, None
 
@@ -375,7 +375,7 @@ def get_contour(x, y, z_in, val):
     cur_cont = [[cont.T[0][i_last], cont.T[1][i_last]]]
     sorted_conts = []
     insort = 1
-    finished = np.zeros(len(isort), dtype=np.bool)
+    finished = np.zeros(len(isort), dtype=bool)
     finished[0] = True
     move_direction = 1  # Reversed if looking for further points of open contour
     while False in finished:
@@ -423,7 +423,7 @@ def get_contour(x, y, z_in, val):
                 insort = np.where(np.logical_not(finished))[0][0]
             move_direction = +1
     # Finally go through all contours and check for closed ones
-    closed_info = np.zeros(len(sorted_conts), dtype=np.bool)
+    closed_info = np.zeros(len(sorted_conts), dtype=bool)
     for i_cont in range(len(sorted_conts)):
         cont = sorted_conts[i_cont]
         i = isort[insort]
