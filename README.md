@@ -22,5 +22,8 @@ The following Python packages (has to be Python 3):
 ## Contributing
 At the moment all contributions should be discussed.
 
+## Conda-forge release
+`conda mambabuild -c conda-forge .`
+
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)

@@ -6,9 +6,6 @@ source:
   git_rev: 1.0.19
   git_url: https://github.com/AreWeDreaming/plasma_math_tools
 
-channels:
-  - conda-forge
-
 requirements:
   build:
     - python
@@ -19,5 +16,5 @@ requirements:
   run:
     - python
     - matplotlib >=3.3
-    - numpy =1.26
+    - numpy <=1.26
     - scipy >=1.7
