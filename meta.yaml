@@ -16,5 +16,5 @@ requirements:
   run:
     - python
     - matplotlib >=3.3
-    - numpy >=1.21
+    - numpy >=1.26
     - scipy >=1.7
