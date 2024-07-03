@@ -145,7 +145,7 @@ def get_theta_pol_from_two_points(R1_vec, R2_vec):
     # R1_vec and R2_vec should be 2D and lie in the R,z plane
     dR = R2_vec[0] - R1_vec[0] 
     dz = R2_vec[1] - R1_vec[1]
-    theta_pol = np.rad2deg(np.arctan2(dz,dR))
+    theta_pol = np.rad2deg(np.arctan2(dz, -dR))
     return theta_pol
 
 def get_phi_tor_from_two_points(x1_vec, x2_vec):
