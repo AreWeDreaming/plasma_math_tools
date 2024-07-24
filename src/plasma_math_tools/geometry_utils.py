@@ -150,8 +150,9 @@ def get_theta_pol_from_two_points(R1_vec, R2_vec):
 
 def get_phi_tor_from_two_points(x1_vec, x2_vec):
     # x1_vec and x2_vec should be 2D and lie in the x,y plane
-    phi_tor = -np.rad2deg(np.arccos((-x1_vec[0] * (x2_vec[0] - x1_vec[0]) - x1_vec[1] * (x2_vec[1] - x1_vec[1])) / 
-                                                    (np.linalg.norm(x1_vec, axis=0) * np.linalg.norm(x2_vec - x1_vec, axis=0))))
+    phi_1 = np.arctan2(x1_vec[1], x1_vec[0])
+    phi_12 = np.arctan2(x1_vec[1]-x2_vec[1], x1_vec[0]-x2_vec[0])
+    phi_tor = np.rad2deg(phi_1 - phi_12) 
     return phi_tor
 
 class Contouring():
